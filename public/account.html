@@ -97,18 +97,18 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-xl-7 ftco-animate">
-						<form action="#" class="billing-form">
-							<h3 class="mb-4 billing-heading">Analytics</h3>
+						<!-- <form action="#" class="billing-form"> -->
+							<h3 style="text-align: center;" class="mb-4 billing-heading">Analytics</h3>
 	          	<div class="row align-items-end">
-	          		<div class="col-md-6">
+	          		<div class="col-md-12">
 	                <div class="form-group">
-	                	<label for="firstname">Miles Score: </label>
+	                	<p id="miles" style="text-align: center;">Total Carbon Foodprint™: calculating...</p>
 	                </div>
                 </div>
                 <div class="w-100"></div>
 		            <div class="col-md-12">
 		            	<div class="form-group">
-							<label for="country">Nutrition Score:</label>
+							<p style="text-align: center;" id="nutri">Nutrition Score: calculating...</p>
 							<footer class="ftco-footer ftco-section">
 								
 									</div>
@@ -218,42 +218,7 @@
 
   <script src="js/main.js"></script>
 
-  <script>
-		$(document).ready(function(){
-
-		var quantitiy=0;
-		   $('.quantity-right-plus').click(function(e){
-		        
-		        // Stop acting like a button
-		        e.preventDefault();
-		        // Get the field name
-		        var quantity = parseInt($('#quantity').val());
-		        
-		        // If is not undefined
-		            
-		            $('#quantity').val(quantity + 1);
-
-		          
-		            // Increment
-		        
-		    });
-
-		     $('.quantity-left-minus').click(function(e){
-		        // Stop acting like a button
-		        e.preventDefault();
-		        // Get the field name
-		        var quantity = parseInt($('#quantity').val());
-		        
-		        // If is not undefined
-		      
-		            // Increment
-		            if(quantity>0){
-		            $('#quantity').val(quantity - 1);
-		            }
-		    });
-		    
-		});
-	</script>
+  <script src="js/account.js"></script>
     
   </body>
 </html>
