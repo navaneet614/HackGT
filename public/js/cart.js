@@ -110,7 +110,7 @@ function checkout() {
 
     }).then(function () {
         var newscore = 0;
-        ntotal = ntotal/=items.length;
+        ntotal/=items.length;
         if(nscore==0){
             newscore = ntotal;
         } else {
