@@ -344,3 +344,34 @@ setInterval(function() { makeTimer(); }, 1000);
 
 })(jQuery);
 
+$(document).ready(function () {
+	$("#navaccount").css("display", "none");
+});
+
+firebase.auth().onAuthStateChanged(function (user) {
+	if (user) {
+		// User is signed in.
+		$("#navlogin a").text("Logout");
+		$("#navlogin a").attr("href", "javascript:logout()");
+		firebase.firestore().collection("users").doc(user.uid).get().then(function (doc) {
+			if (doc.exists) {
+				$("#navaccount a").text(doc.data().name);
+				$("#navaccount").css("display", "block");
+			} else {
+				// doc.data() will be undefined in this case
+				console.log("No such document!");
+			}
+		}).catch(function (error) {
+			console.log("Error getting document:", error);
+		});
+
+	} else {
+		//toggleLoader();
+	}
+});
+
+function logout() {
+	firebase.auth().signOut();
+	location.reload();
+}
+
