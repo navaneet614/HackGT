@@ -357,6 +357,9 @@ firebase.auth().onAuthStateChanged(function (user) {
 			if (doc.exists) {
 				$("#navaccount a").text(doc.data().name);
 				$("#navaccount").css("display", "block");
+				if(!(doc.data().cart == null)){
+					$("#cart").html('<span class="icon-shopping_cart"></span>['+doc.data().cart.length+']');
+				}
 			} else {
 				// doc.data() will be undefined in this case
 				console.log("No such document!");
